@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: arenda
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+
+telegram:
+  bot:
+    username: IjaraRadarBotsass
+    token: 8391914896:AAGs8NIcQzIaXenSI9ABHQ57Fjp7Jg2VQfM
