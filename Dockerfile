@@ -1,12 +1,12 @@
-# Build stage
-FROM gradle:8.7-jdk21 AS build
-WORKDIR /app
-COPY . .
-RUN gradle clean build -x test
-
-# Run stage
 FROM eclipse-temurin:21-jdk-jammy
+
 WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
+
+COPY . .
+
+RUN chmod +x gradlew
+RUN ./gradlew clean build -x test
+
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","app.jar"]
+
+ENTRYPOINT ["java","-jar","build/libs/arenda-0.0.1-SNAPSHOT.jar"]
